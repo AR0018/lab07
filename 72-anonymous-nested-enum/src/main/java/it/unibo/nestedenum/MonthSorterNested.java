@@ -63,7 +63,7 @@ public final class MonthSorterNested implements MonthSorter {
         return new SortByMonthOrder();
     }
 
-    public /*static*/ class SortByMonthOrder implements Comparator<String> {
+    private class SortByMonthOrder implements Comparator<String> {
 
         @Override
         public int compare(String o1, String o2) throws IllegalArgumentException {
@@ -72,7 +72,7 @@ public final class MonthSorterNested implements MonthSorter {
 
     }
 
-    public class SortByDate implements Comparator<String> {
+    private class SortByDate implements Comparator<String> {
 
         @Override
         public int compare(String o1, String o2) throws IllegalArgumentException{
