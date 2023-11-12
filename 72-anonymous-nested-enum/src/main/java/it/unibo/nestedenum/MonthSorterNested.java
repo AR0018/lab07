@@ -2,14 +2,13 @@ package it.unibo.nestedenum;
 
 import java.util.Comparator;
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * Implementation of {@link MonthSorter}.
  */
 public final class MonthSorterNested implements MonthSorter {
 
-    enum Month{
+    private enum Month{
         JANUARY(31),
         FEBRUARY(28),
         MARCH(31),
@@ -30,15 +29,11 @@ public final class MonthSorterNested implements MonthSorter {
             this.days = days;
         }
 
-        public int getDays() {
-            return this.days;
-        }
-
         public static Month fromString(String monthString) throws IllegalArgumentException {
             Month foundMonth = null;
             int occurrencies = 0;
             for (final Month month : Month.values()) {
-                if(month.name().startsWith(monthString.toUpperCase())) {
+                if(month.name().startsWith(monthString.toUpperCase(Locale.ROOT))) {
                     foundMonth = month;
                     occurrencies++;
                 }
